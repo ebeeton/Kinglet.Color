@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinglet.Color", "Kinglet.Color\Kinglet.Color.csproj", "{782F3AE2-4A88-48F6-8A30-D1A8E5817C2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{782F3AE2-4A88-48F6-8A30-D1A8E5817C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782F3AE2-4A88-48F6-8A30-D1A8E5817C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782F3AE2-4A88-48F6-8A30-D1A8E5817C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782F3AE2-4A88-48F6-8A30-D1A8E5817C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98BC1DC4-B4BA-46CE-A30A-94478A96CBE2}
+	EndGlobalSection
+EndGlobal
