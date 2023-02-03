@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Kinglet.Color
@@ -50,6 +51,7 @@ namespace Kinglet.Color
 			var match = _hexColor.Match(hex);
 			if (!match.Success || match.Groups.Count != 2)
 			{
+				Trace.WriteLine($"{nameof(FromHex)} failed to to parse \"{hex}\".");
 				throw new FormatException(strings.FormatExceptionMessage);
 			}
 
@@ -75,6 +77,7 @@ namespace Kinglet.Color
 				G = bytes[1];
 				B = bytes[2];
 			}
+			Trace.WriteLine($"{nameof(FromHex)} parsed {hex} to A:{A} R:{R} G:{G} B:{B}.");
 		}
 	}
 }
