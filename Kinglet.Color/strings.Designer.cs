@@ -63,9 +63,18 @@ namespace Kinglet.Color {
         /// <summary>
         ///   Looks up a localized string similar to Could not parse argument as a hexadecimal color..
         /// </summary>
-        internal static string FormatExceptionMessage {
+        internal static string CouldNotParseHexExceptionMessage {
             get {
-                return ResourceManager.GetString("FormatExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("CouldNotParseHexExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The stop position must be in the interval [0,1]..
+        /// </summary>
+        internal static string InvalidStopPositionExceptionMessage {
+            get {
+                return ResourceManager.GetString("InvalidStopPositionExceptionMessage", resourceCulture);
             }
         }
     }

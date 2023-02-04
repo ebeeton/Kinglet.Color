@@ -52,7 +52,7 @@ namespace Kinglet.Color
 			if (!match.Success || match.Groups.Count != 2)
 			{
 				Trace.WriteLine($"{nameof(FromHex)} failed to to parse \"{hex}\".");
-				throw new FormatException(strings.FormatExceptionMessage);
+				throw new FormatException(strings.CouldNotParseHexExceptionMessage);
 			}
 
 			var hexOnly = match.Groups[1].Value;
