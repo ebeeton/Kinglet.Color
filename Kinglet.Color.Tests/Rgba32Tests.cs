@@ -88,5 +88,33 @@ namespace Kinglet.Color.Tests
 
 			Assert.Fail("An exception was not thrown.", interpolated);
 		}
+
+		[TestMethod]
+		public void LinearInterpolate_WithPosition0_ReturnsFirstColor()
+		{
+			var start = new Rgba32(255, 0, 128, 255);
+			var end = new Rgba32(0, 255, 0, 128);
+
+			var interpolated = start.LinearInterpolate(end, 0);
+
+			Assert.AreEqual(255, interpolated.R);
+			Assert.AreEqual(0, interpolated.G);
+			Assert.AreEqual(128, interpolated.B);
+			Assert.AreEqual(255, interpolated.A);
+		}
+
+		[TestMethod]
+		public void LinearInterpolate_WithPosition1_ReturnsSecondColor()
+		{
+			var start = new Rgba32(255, 0, 128, 255);
+			var end = new Rgba32(0, 255, 0, 128);
+
+			var interpolated = start.LinearInterpolate(end, 1.0);
+
+			Assert.AreEqual(0, interpolated.R);
+			Assert.AreEqual(255, interpolated.G);
+			Assert.AreEqual(0, interpolated.B);
+			Assert.AreEqual(128, interpolated.A);
+		}
 	}
 }
