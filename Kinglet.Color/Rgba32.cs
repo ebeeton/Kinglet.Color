@@ -13,6 +13,26 @@ namespace Kinglet.Color
 		private readonly Regex _hexColor = new Regex("#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6})");
 
 		/// <summary>
+		/// Instantiate an <see cref="Rgba32"/>.
+		/// </summary>
+		public Rgba32() { }
+
+		/// <summary>
+		/// Instantiate an <see cref="Rgba32"/>.
+		/// </summary>
+		/// <param name="red">Red channel.</param>
+		/// <param name="green">Green channel.</param>
+		/// <param name="blue">Blue channel.</param>
+		/// <param name="alpha">Alpha channel.</param>
+		public Rgba32(byte red, byte green, byte blue, byte alpha)
+		{
+			R = red;
+			G = green;
+			B = blue;
+			A = alpha;
+		}
+
+		/// <summary>
 		/// Red channel.
 		/// </summary>
 		public byte R { get; set; }
@@ -78,6 +98,30 @@ namespace Kinglet.Color
 				B = bytes[2];
 			}
 			Trace.WriteLine($"{nameof(FromHex)} parsed {hex} to A:{A} R:{R} G:{G} B:{B}.");
+		}
+
+		/// <summary>
+		/// Get an interpolated color between the invoking one and another at a given position.
+		/// </summary>
+		/// <param name="color">Other color to interpolate between.</param>
+		/// <param name="position">Position to interpolate in [0,1].</param>
+		/// <returns></returns>
+		public Rgba32 LinearInterpolate(Rgba32 color, double position)
+		{
+			if (color == null)
+			{
+				throw new ArgumentNullException(nameof(color));
+			}
+			else if (position < Constants.MinStopPosition || position > Constants.MaxStopPosition)
+			{
+				throw new ArgumentException(strings.InvalidPositionExceptionMessage, nameof(position));
+			}
+
+			var oneMinusPosition = 1.0 - position;
+			return new Rgba32((byte)(oneMinusPosition * R + position * color.R),
+					 (byte)(oneMinusPosition * G + position * color.G),
+					 (byte)(oneMinusPosition * B + position * color.B),
+					 (byte)(oneMinusPosition * A + position * color.A));
 		}
 	}
 }

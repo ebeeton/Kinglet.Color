@@ -8,7 +8,6 @@ namespace Kinglet.Color
 	/// </summary>
 	public class Stop
 	{
-		const double MinPosition = 0, MaxPosition = 1.0;
 		double _position;
 
 		/// <summary>
@@ -40,9 +39,9 @@ namespace Kinglet.Color
 			}
 			set
 			{
-				if (value < MinPosition || value > MaxPosition)
+				if (value < Constants.MinStopPosition || value > Constants.MaxStopPosition)
 				{
-					throw new ArgumentException(strings.InvalidStopPositionExceptionMessage);
+					throw new ArgumentException(strings.InvalidPositionExceptionMessage);
 				}
 				_position = value;
 			}

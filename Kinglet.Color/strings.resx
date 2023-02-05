@@ -120,7 +120,7 @@
   <data name="CouldNotParseHexExceptionMessage" xml:space="preserve">
     <value>Could not parse argument as a hexadecimal color.</value>
   </data>
-  <data name="InvalidStopPositionExceptionMessage" xml:space="preserve">
-    <value>The stop position must be in the interval [0,1].</value>
+  <data name="InvalidPositionExceptionMessage" xml:space="preserve">
+    <value>The position must be in [0,1].</value>
   </data>
 </root>

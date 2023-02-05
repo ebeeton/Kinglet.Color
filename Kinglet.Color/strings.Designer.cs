@@ -70,11 +70,11 @@ namespace Kinglet.Color {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The stop position must be in the interval [0,1]..
+        ///   Looks up a localized string similar to The position must be in [0,1]..
         /// </summary>
-        internal static string InvalidStopPositionExceptionMessage {
+        internal static string InvalidPositionExceptionMessage {
             get {
-                return ResourceManager.GetString("InvalidStopPositionExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("InvalidPositionExceptionMessage", resourceCulture);
             }
         }
     }

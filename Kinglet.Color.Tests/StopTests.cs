@@ -15,7 +15,7 @@
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
-		public void PositionSet_SmallerThanValidInterval_ThrowsException()
+		public void PositionSet_TooSmall_ThrowsException()
 		{
 			var stop = new Stop(-0.00001, new Rgba32());
 
@@ -24,7 +24,7 @@
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
-		public void PositionSet_LargerThanValidInterval_ThrowsException()
+		public void PositionSet_TooLarge_ThrowsException()
 		{
 			var stop = new Stop
 			{

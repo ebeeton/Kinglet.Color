@@ -50,5 +50,43 @@ namespace Kinglet.Color.Tests
 			Assert.AreEqual(0, color.B);
 			Assert.AreEqual(byte.MaxValue, color.A);
 		}
+
+		[TestMethod]
+		public void LinearInterpolate_WithColorAndPosition_ReturnsInterpolatedColor()
+		{
+			var start = new Rgba32(255, 0, 128, 255);
+			var end = new Rgba32(0, 255, 0, 128);
+
+			var interpolated = start.LinearInterpolate(end, 0.5);
+
+			Assert.AreEqual(127, interpolated.R);
+			Assert.AreEqual(127, interpolated.G);
+			Assert.AreEqual(64, interpolated.B);
+			Assert.AreEqual(191, interpolated.A);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void LinearInterpolate_WithPositionTooSmall_ThrowsException()
+		{
+			var start = new Rgba32(255, 0, 128, 255);
+			var end = new Rgba32(0, 255, 0, 128);
+
+			var interpolated = start.LinearInterpolate(end, -0.00001);
+
+			Assert.Fail("An exception was not thrown.", interpolated);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void LinearInterpolate_WithPositionTooLarge_ThrowsException()
+		{
+			var start = new Rgba32(255, 0, 128, 255);
+			var end = new Rgba32(0, 255, 0, 128);
+
+			var interpolated = start.LinearInterpolate(end, 1.00001);
+
+			Assert.Fail("An exception was not thrown.", interpolated);
+		}
 	}
 }
