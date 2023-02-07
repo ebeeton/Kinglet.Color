@@ -18,7 +18,7 @@ namespace Kinglet.Color
 		/// </summary>
 		/// <param name="count">Number of colors in the resulting palette.</param>
 		/// <returns>A palette of colors representi</returns>
-		public Rgba32[] GetPalette(int count)
+		public Rgba32[] GetPalette(UInt32 count)
 		{
 			var palette = new Rgba32[count];
 

@@ -123,21 +123,5 @@ namespace Kinglet.Color
 					 (byte)(oneMinusPosition * B + position * color.B),
 					 (byte)(oneMinusPosition * A + position * color.A));
 		}
-
-		/// <summary>
-		/// Determines whether the specified object is equal to the current <see cref="Rgba32"/>.
-		/// </summary>
-		/// <param name="obj">The object to compare with the current <see cref="Rgba32"/>.</param>
-		/// <returns>True if the specified object is equal to the current <see cref="Rgba32"/>; otherwise, false.</returns>
-		public override bool Equals(object obj)
-		{
-			var other = obj as Rgba32;
-			if (other is null)
-			{
-				return false;
-			}
-
-			return R == other.R && G == other.G && B == other.B && A == other.A;
-		}
 	}
 }
