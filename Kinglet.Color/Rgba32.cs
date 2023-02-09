@@ -10,7 +10,7 @@ namespace Kinglet.Color
 	/// </summary>
 	public class Rgba32
 	{
-		private readonly Regex _hexColor = new Regex("#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6})");
+		private static readonly Regex _hexColor = new Regex("#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6})");
 
 		/// <summary>
 		/// Instantiate an <see cref="Rgba32"/>.
@@ -122,6 +122,15 @@ namespace Kinglet.Color
 					 (byte)(oneMinusPosition * G + position * color.G),
 					 (byte)(oneMinusPosition * B + position * color.B),
 					 (byte)(oneMinusPosition * A + position * color.A));
+		}
+
+		/// <summary>
+		/// Returns a string that represents the <see cref="Rgba32"/>.
+		/// </summary>
+		/// <returns>A string that represents the <see cref="Rgba32"/></returns>
+		public override string ToString()
+		{
+			return $"R: {R} G: {G} B: {B} A: {A}";
 		}
 	}
 }
