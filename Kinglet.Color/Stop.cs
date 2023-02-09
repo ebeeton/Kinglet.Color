@@ -50,5 +50,14 @@ namespace Kinglet.Color
 		/// The color at the position.
 		/// </summary>
 		public Rgba32 Color { get; set; }
+
+		/// <summary>
+		/// Returns a string that represents the <see cref="Stop"/>.
+		/// </summary>
+		/// <returns>A string that represents the <see cref="Stop"/>.</returns>
+		public override string ToString()
+		{
+			return $"Position: {Position} Color: {Color}";
+		}
 	}
 }
