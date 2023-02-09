@@ -48,7 +48,7 @@ namespace Kinglet.Color
 		public byte B { get; set; }
 
 		/// <summary>
-		/// Alpha channel
+		/// Alpha channel.
 		/// </summary>
 		public byte A { get; set; } = byte.MaxValue;
 
