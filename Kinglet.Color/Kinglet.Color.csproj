@@ -13,6 +13,7 @@
     <PackageReleaseNotes>Intial release.</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>logo.png</PackageIcon>
+    <Authors>Evan Beeton</Authors>
   </PropertyGroup>
 
   <ItemGroup>
