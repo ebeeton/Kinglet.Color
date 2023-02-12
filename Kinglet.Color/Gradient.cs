@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Kinglet.Color
 {
@@ -24,10 +25,7 @@ namespace Kinglet.Color
 
 			// Ensure that the last color is the last stop's color.
 			var step = 1.0 / ((double)count - 1);
-			for (int i = 0; i < count; i++)
-			{
-				palette[i] = GetInterpolatedColor(i * step);
-			}
+			Parallel.For(0, count, i => palette[i] = GetInterpolatedColor(i * step));
 			return palette;
 		}
 
