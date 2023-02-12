@@ -11,7 +11,7 @@ namespace Kinglet.Color
 		/// <summary>
 		/// The stops that make up the <see cref="Gradient"/>.
 		/// </summary>
-		public List<Stop> Stops { get; set; }
+		public List<GradientStop> Stops { get; set; }
 
 		/// <summary>
 		/// Gets a palette with a given number of colors in the same order as the gradient stops.
@@ -33,7 +33,7 @@ namespace Kinglet.Color
 
 		private Rgba32 GetInterpolatedColor(double position)
 		{
-			Stop first, second;
+			GradientStop first, second;
 			for (int i = 0; i < Stops.Count - 1; i++)
 			{
 				// Which stops is position between?

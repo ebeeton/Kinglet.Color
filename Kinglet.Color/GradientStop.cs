@@ -5,22 +5,22 @@ namespace Kinglet.Color
 	/// <summary>
 	/// A stop in a gradient.
 	/// </summary>
-	public class Stop
+	public class GradientStop
 	{
 		double _position;
 
 		/// <summary>
-		/// Instantiate a <see cref="Stop"/>.
+		/// Instantiate a <see cref="GradientStop"/>.
 		/// </summary>
-		public Stop() { }
+		public GradientStop() { }
 
 		/// <summary>
-		/// Instantiate a <see cref="Stop"/>.
+		/// Instantiate a <see cref="GradientStop"/>.
 		/// </summary>
 		/// <param name="position">The position in a gradient where the valid
 		/// interval is [0, 1].</param>
 		/// <param name="color">The color at the position.</param>
-		public Stop(double position, Rgba32 color)
+		public GradientStop(double position, Rgba32 color)
 		{
 			Position = position;
 			Color = color;
@@ -52,9 +52,9 @@ namespace Kinglet.Color
 		public Rgba32 Color { get; set; }
 
 		/// <summary>
-		/// Returns a string that represents the <see cref="Stop"/>.
+		/// Returns a string that represents the <see cref="GradientStop"/>.
 		/// </summary>
-		/// <returns>A string that represents the <see cref="Stop"/>.</returns>
+		/// <returns>A string that represents the <see cref="GradientStop"/>.</returns>
 		public override string ToString()
 		{
 			return $"Position: {Position} Color: {Color}";

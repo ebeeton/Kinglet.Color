@@ -6,7 +6,7 @@
 		[TestMethod]
 		public void PositionSet_WithValidInterval_GetsCorrectValue()
 		{
-			var stop = new Stop(0.333, new Rgba32());
+			var stop = new GradientStop(0.333, new Rgba32());
 
 			var position = stop.Position;
 
@@ -17,7 +17,7 @@
 		[ExpectedException(typeof(ArgumentException))]
 		public void PositionSet_TooSmall_ThrowsException()
 		{
-			var stop = new Stop(-0.00001, new Rgba32());
+			var stop = new GradientStop(-0.00001, new Rgba32());
 
 			Assert.Fail("An exception was not thrown.", stop);
 		}
@@ -26,7 +26,7 @@
 		[ExpectedException(typeof(ArgumentException))]
 		public void PositionSet_TooLarge_ThrowsException()
 		{
-			var stop = new Stop
+			var stop = new GradientStop
 			{
 				Position = 1.00001
 			};

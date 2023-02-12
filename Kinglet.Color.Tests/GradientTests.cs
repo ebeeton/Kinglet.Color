@@ -12,11 +12,11 @@
 
 			var gradient = new Gradient
 			{
-				Stops = new List<Stop>
+				Stops = new List<GradientStop>
 				{
 					// Black -> white, 100% alpha.
-					new Stop(0, black),
-					new Stop(1, white)
+					new GradientStop(0, black),
+					new GradientStop(1, white)
 				}
 			};
 

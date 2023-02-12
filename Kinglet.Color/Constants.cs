@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Symbolic constants.
 	/// </summary>
-	internal class Constants
+	internal sealed class Constants
 	{
 		/// <summary>
 		/// Minimum valid stop position.
