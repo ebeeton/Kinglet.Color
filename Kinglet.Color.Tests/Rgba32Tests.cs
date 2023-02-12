@@ -65,27 +65,25 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(ArgumentException))]
 		public void LinearInterpolate_WithPositionTooSmall_ThrowsException()
 		{
 			var start = new Rgba32(255, 0, 128, 255);
 			var end = new Rgba32(0, 255, 0, 128);
 
-			var interpolated = start.LinearInterpolate(end, -0.00001);
+			var exception = Assert.ThrowsException<ArgumentException>(() => start.LinearInterpolate(end, -0.00001));
 
-			Assert.Fail("An exception was not thrown.", interpolated);
+			Assert.AreEqual(strings.InvalidPositionExceptionMessage, exception.Message);
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(ArgumentException))]
 		public void LinearInterpolate_WithPositionTooLarge_ThrowsException()
 		{
 			var start = new Rgba32(255, 0, 128, 255);
 			var end = new Rgba32(0, 255, 0, 128);
 
-			var interpolated = start.LinearInterpolate(end, 1.00001);
+			var exception = Assert.ThrowsException<ArgumentException>(() => start.LinearInterpolate(end, 1.00001));
 
-			Assert.Fail("An exception was not thrown.", interpolated);
+			Assert.AreEqual(strings.InvalidPositionExceptionMessage, exception.Message);
 		}
 
 		[TestMethod]

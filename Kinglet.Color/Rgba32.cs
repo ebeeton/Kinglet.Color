@@ -114,7 +114,7 @@ namespace Kinglet.Color
 			}
 			else if (position < Constants.MinStopPosition || position > Constants.MaxStopPosition)
 			{
-				throw new ArgumentException(strings.InvalidPositionExceptionMessage, nameof(position));
+				throw new ArgumentException(strings.InvalidPositionExceptionMessage);
 			}
 
 			var oneMinusPosition = 1.0 - position;
