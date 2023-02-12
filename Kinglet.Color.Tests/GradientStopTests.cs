@@ -1,7 +1,7 @@
 ﻿namespace Kinglet.Color.Tests
 {
 	[TestClass]
-	public class StopTests
+	public class GradientStopTests
 	{
 		[TestMethod]
 		public void PositionSet_WithValidInterval_GetsCorrectValue()
@@ -14,24 +14,22 @@
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(ArgumentException))]
 		public void PositionSet_TooSmall_ThrowsException()
 		{
-			var stop = new GradientStop(-0.00001, new Rgba32());
+			var exception = Assert.ThrowsException<ArgumentException>(() => new GradientStop(-0.00001, new Rgba32()));
 
-			Assert.Fail("An exception was not thrown.", stop);
+			Assert.AreEqual(strings.InvalidPositionExceptionMessage, exception.Message);
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(ArgumentException))]
 		public void PositionSet_TooLarge_ThrowsException()
 		{
-			var stop = new GradientStop
+			var exception = Assert.ThrowsException<ArgumentException>(() => new GradientStop
 			{
 				Position = 1.00001
-			};
+			});
 
-			Assert.Fail("An exception was not thrown.", stop);
+			Assert.AreEqual(strings.InvalidPositionExceptionMessage, exception.Message);
 		}
 	}
 }
