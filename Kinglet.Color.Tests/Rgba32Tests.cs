@@ -30,14 +30,13 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(FormatException))]
 		public void FromHexColor_WithInvalidHex_ThrowsException()
 		{
 			var color = new Rgba32();
 
-			color.FromHex("#FFFFF");
+			var exception = Assert.ThrowsException<FormatException>(() => color.FromHex("#FFFFF"));
 
-			Assert.Fail();
+			Assert.AreEqual(strings.CouldNotParseHexExceptionMessage, exception.Message);
 		}
 
 		[TestMethod]

@@ -22,7 +22,7 @@ namespace Kinglet.Color {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class strings {
+    public class strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Kinglet.Color {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kinglet.Color.strings", typeof(strings).Assembly);
@@ -51,7 +51,7 @@ namespace Kinglet.Color {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Kinglet.Color {
         /// <summary>
         ///   Looks up a localized string similar to Could not parse argument as a hexadecimal color..
         /// </summary>
-        internal static string CouldNotParseHexExceptionMessage {
+        public static string CouldNotParseHexExceptionMessage {
             get {
                 return ResourceManager.GetString("CouldNotParseHexExceptionMessage", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Kinglet.Color {
         /// <summary>
         ///   Looks up a localized string similar to The position must be in [0,1]..
         /// </summary>
-        internal static string InvalidPositionExceptionMessage {
+        public static string InvalidPositionExceptionMessage {
             get {
                 return ResourceManager.GetString("InvalidPositionExceptionMessage", resourceCulture);
             }
