@@ -70,6 +70,15 @@ namespace Kinglet.Color {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Each stop position must be greater than the last..
+        /// </summary>
+        public static string DuplicateGradientStopPositionExceptionMessage {
+            get {
+                return ResourceManager.GetString("DuplicateGradientStopPositionExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The gradient must have at least two stops..
         /// </summary>
         public static string InvalidGradientStopCountExceptionMessage {

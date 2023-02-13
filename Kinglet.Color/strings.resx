@@ -120,6 +120,9 @@
   <data name="CouldNotParseHexExceptionMessage" xml:space="preserve">
     <value>Could not parse argument as a hexadecimal color.</value>
   </data>
+  <data name="DuplicateGradientStopPositionExceptionMessage" xml:space="preserve">
+    <value>Each stop position must be greater than the last.</value>
+  </data>
   <data name="InvalidGradientStopCountExceptionMessage" xml:space="preserve">
     <value>The gradient must have at least two stops.</value>
   </data>

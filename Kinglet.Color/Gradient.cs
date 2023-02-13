@@ -64,6 +64,15 @@ namespace Kinglet.Color
 			{
 				throw new InvalidOperationException(strings.InvalidGradientStopLastPositionExceptionMessage);
 			}
+
+			// Ensure each stop position is greater than the last.
+			for (int i = 0; i < Stops.Count - 1; i++)
+			{
+				if (Stops[i].Position >= Stops[i + 1].Position)
+				{
+					throw new InvalidOperationException(strings.DuplicateGradientStopPositionExceptionMessage);
+				}
+			}
 		}
 	}
 }
