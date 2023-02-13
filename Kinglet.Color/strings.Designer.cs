@@ -79,6 +79,24 @@ namespace Kinglet.Color {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The first stop must have position 0..
+        /// </summary>
+        public static string InvalidGradientStopFirstPositionExceptionMessage {
+            get {
+                return ResourceManager.GetString("InvalidGradientStopFirstPositionExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The last stop must have position 1..
+        /// </summary>
+        public static string InvalidGradientStopLastPositionExceptionMessage {
+            get {
+                return ResourceManager.GetString("InvalidGradientStopLastPositionExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The position must be in [0,1]..
         /// </summary>
         public static string InvalidPositionExceptionMessage {

@@ -123,6 +123,12 @@
   <data name="InvalidGradientStopCountExceptionMessage" xml:space="preserve">
     <value>The gradient must have at least two stops.</value>
   </data>
+  <data name="InvalidGradientStopFirstPositionExceptionMessage" xml:space="preserve">
+    <value>The first stop must have position 0.</value>
+  </data>
+  <data name="InvalidGradientStopLastPositionExceptionMessage" xml:space="preserve">
+    <value>The last stop must have position 1.</value>
+  </data>
   <data name="InvalidPositionExceptionMessage" xml:space="preserve">
     <value>The position must be in [0,1].</value>
   </data>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Kinglet.Color
@@ -54,6 +55,14 @@ namespace Kinglet.Color
 			if (Stops.Count < 2)
 			{
 				throw new InvalidOperationException(strings.InvalidGradientStopCountExceptionMessage);
+			}
+			else if (Stops.First().Position != Constants.MinStopPosition)
+			{
+				throw new InvalidOperationException(strings.InvalidGradientStopFirstPositionExceptionMessage);
+			}
+			else if (Stops.Last().Position != Constants.MaxStopPosition)
+			{
+				throw new InvalidOperationException(strings.InvalidGradientStopLastPositionExceptionMessage);
 			}
 		}
 	}

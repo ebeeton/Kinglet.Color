@@ -3,12 +3,13 @@
 	[TestClass]
 	public class GradientTests
 	{
+		private readonly Rgba32 black = new(0, 0, 0, 255);
+		private readonly Rgba32 white = new(255, 255, 255, 255);
+
 		[TestMethod]
 		public void GetPalette_WithValidStops_ReturnsExpectedColors()
 		{
-			var black = new Rgba32(0, 0, 0, 255);
 			var grey = new Rgba32(127, 127, 127, 255);
-			var white = new Rgba32(255, 255, 255, 255);
 
 			var gradient = new Gradient
 			{
@@ -45,6 +46,40 @@
 			var exception = Assert.ThrowsException<InvalidOperationException>(() => gradient.GetPalette(10));
 
 			Assert.AreEqual(strings.InvalidGradientStopCountExceptionMessage, exception.Message);
+		}
+
+		[TestMethod]
+		public void GetPalette_WithFirstStopPositionNotZero_ThrowsException()
+		{
+			var gradient = new Gradient
+			{
+				Stops = new List<GradientStop>
+				{
+					new GradientStop(0.1, black),
+					new GradientStop(1, white)
+				}
+			};
+
+			var exception = Assert.ThrowsException<InvalidOperationException>(() => gradient.GetPalette(10));
+
+			Assert.AreEqual(strings.InvalidGradientStopFirstPositionExceptionMessage, exception.Message);
+		}
+
+		[TestMethod]
+		public void GetPalette_WithLastStopPositionNotOne_ThrowsException()
+		{
+			var gradient = new Gradient
+			{
+				Stops = new List<GradientStop>
+				{
+					new GradientStop(0, black),
+					new GradientStop(0.9, white)
+				}
+			};
+
+			var exception = Assert.ThrowsException<InvalidOperationException>(() => gradient.GetPalette(10));
+
+			Assert.AreEqual(strings.InvalidGradientStopLastPositionExceptionMessage, exception.Message);
 		}
 	}
 }
