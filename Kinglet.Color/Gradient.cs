@@ -12,7 +12,7 @@ namespace Kinglet.Color
 		/// <summary>
 		/// The stops that make up the <see cref="Gradient"/>.
 		/// </summary>
-		public List<GradientStop> Stops { get; set; }
+		public List<GradientStop> Stops { get; set; } = new List<GradientStop>();
 
 		/// <summary>
 		/// Gets a palette with a given number of colors in the same order as the gradient stops.
@@ -21,6 +21,7 @@ namespace Kinglet.Color
 		/// <returns>A palette of colors representi</returns>
 		public Rgba32[] GetPalette(UInt32 count)
 		{
+			Validate();
 			var palette = new Rgba32[count];
 
 			// Ensure that the last color is the last stop's color.
@@ -46,6 +47,14 @@ namespace Kinglet.Color
 			}
 
 			return Stops[Stops.Count - 1].Color;
+		}
+
+		private void Validate()
+		{
+			if (Stops.Count < 2)
+			{
+				throw new InvalidOperationException(strings.InvalidGradientStopCountExceptionMessage);
+			}
 		}
 	}
 }

@@ -120,6 +120,9 @@
   <data name="CouldNotParseHexExceptionMessage" xml:space="preserve">
     <value>Could not parse argument as a hexadecimal color.</value>
   </data>
+  <data name="InvalidGradientStopCountExceptionMessage" xml:space="preserve">
+    <value>The gradient must have at least two stops.</value>
+  </data>
   <data name="InvalidPositionExceptionMessage" xml:space="preserve">
     <value>The position must be in [0,1].</value>
   </data>

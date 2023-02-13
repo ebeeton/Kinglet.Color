@@ -4,7 +4,7 @@
 	public class GradientTests
 	{
 		[TestMethod]
-		public void GetPalette_WithStops_ReturnsExpectedColors()
+		public void GetPalette_WithValidStops_ReturnsExpectedColors()
 		{
 			var black = new Rgba32(0, 0, 0, 255);
 			var grey = new Rgba32(127, 127, 127, 255);
@@ -35,6 +35,16 @@
 			Assert.AreEqual(white.G, palette[2].G);
 			Assert.AreEqual(white.B, palette[2].B);
 			Assert.AreEqual(white.A, palette[2].A);
+		}
+
+		[TestMethod]
+		public void GetPalette_WithLessThanTwoStops_ThrowsException()
+		{
+			var gradient = new Gradient();
+
+			var exception = Assert.ThrowsException<InvalidOperationException>(() => gradient.GetPalette(10));
+
+			Assert.AreEqual(strings.InvalidGradientStopCountExceptionMessage, exception.Message);
 		}
 	}
 }
