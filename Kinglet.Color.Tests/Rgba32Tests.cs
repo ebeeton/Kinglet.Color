@@ -6,14 +6,12 @@ namespace Kinglet.Color.Tests
 		[TestMethod]
 		public void FromHexColor_WithWhite_SetsChannelsCorrectly()
 		{
-			var color = new Rgba32();
+			var color = new Rgba32("#FFFFFF");
 
-			color.FromHex("#FFFFFF");
-
-			Assert.AreEqual(byte.MaxValue, color.R);
-			Assert.AreEqual(byte.MaxValue, color.G);
-			Assert.AreEqual(byte.MaxValue, color.B);
-			Assert.AreEqual(byte.MaxValue, color.A);
+			Assert.AreEqual(255, color.R);
+			Assert.AreEqual(255, color.G);
+			Assert.AreEqual(255, color.B);
+			Assert.AreEqual(255, color.A);
 		}
 
 		[TestMethod]

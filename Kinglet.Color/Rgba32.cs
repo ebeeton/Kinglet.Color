@@ -18,7 +18,7 @@ namespace Kinglet.Color
 		public Rgba32() { }
 
 		/// <summary>
-		/// Instantiate an <see cref="Rgba32"/>.
+		/// Instantiate an <see cref="Rgba32"/> from individual channels.
 		/// </summary>
 		/// <param name="red">Red channel.</param>
 		/// <param name="green">Green channel.</param>
@@ -30,6 +30,15 @@ namespace Kinglet.Color
 			G = green;
 			B = blue;
 			A = alpha;
+		}
+
+		/// <summary>
+		/// Instantiate an <see cref="Rgba32"/> from a hex string.
+		/// </summary>
+		/// <param name="hex">Color hex string.</param>
+		public Rgba32(string hex)
+		{
+			FromHex(hex);
 		}
 
 		/// <summary>
