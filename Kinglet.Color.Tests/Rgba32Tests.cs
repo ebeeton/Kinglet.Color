@@ -4,27 +4,27 @@ namespace Kinglet.Color.Tests
 	public class Rgba32Tests
 	{
 		[TestMethod]
-		public void FromHexColor_WithWhite_SetsChannelsCorrectly()
+		public void FromHexColor_WithRRGGBB_SetsChannelsCorrectly()
 		{
-			var color = new Rgba32("#FFFFFF");
+			var color = new Rgba32("#eb4334");
 
-			Assert.AreEqual(255, color.R);
-			Assert.AreEqual(255, color.G);
-			Assert.AreEqual(255, color.B);
+			Assert.AreEqual(235, color.R);
+			Assert.AreEqual(67, color.G);
+			Assert.AreEqual(52, color.B);
 			Assert.AreEqual(255, color.A);
 		}
 
 		[TestMethod]
-		public void FromHexColor_WithColor_SetsChannelsCorrectly()
+		public void FromHexColor_WithRRGGBBAA_SetsChannelsCorrectly()
 		{
 			var color = new Rgba32();
 
 			color.FromHex("#80FCBA03");
 
-			Assert.AreEqual(252, color.R);
-			Assert.AreEqual(186, color.G);
-			Assert.AreEqual(3, color.B);
-			Assert.AreEqual(128, color.A);
+			Assert.AreEqual(128, color.R);
+			Assert.AreEqual(252, color.G);
+			Assert.AreEqual(186, color.B);
+			Assert.AreEqual(3, color.A);
 		}
 
 		[TestMethod]

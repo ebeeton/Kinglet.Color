@@ -66,9 +66,8 @@ namespace Kinglet.Color
 		/// </summary>
 		/// <param name="hex">Color hex string.</param>
 		/// <remarks>
-		/// If the hex string is of the form #FFFFFF, the alpha channel will
-		/// default to opaque (255). If is of the form #FFFFFFFF, the alpha
-		/// channel will be set to the first byte.
+		/// This method supports #RRGGBB and #RRGGBBAA hex color notation.
+		/// If the former is used, the alpha will default to #FF (255).
 		/// </remarks>
 		public void FromHex(string hex)
 		{
@@ -94,19 +93,19 @@ namespace Kinglet.Color
 
 			if (bytes.Count == 4)
 			{
-				A = bytes[0];
-				R = bytes[1];
-				G = bytes[2];
-				B = bytes[3];
-			}
-			else
-			{
-				A = byte.MaxValue;
 				R = bytes[0];
 				G = bytes[1];
 				B = bytes[2];
+				A = bytes[3];
 			}
-			Trace.WriteLine($"{nameof(FromHex)} parsed {hex} to A:{A} R:{R} G:{G} B:{B}.");
+			else
+			{
+				R = bytes[0];
+				G = bytes[1];
+				B = bytes[2];
+				A = byte.MaxValue;
+			}
+			Trace.WriteLine($"{nameof(FromHex)} parsed {hex} to R:{R} G:{G} B:{B} A:{A}.");
 		}
 
 		/// <summary>
