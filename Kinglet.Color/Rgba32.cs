@@ -115,6 +115,16 @@ namespace Kinglet.Color
 		}
 
 		/// <summary>
+		/// Converts the invoking <see cref="Rgba32"/> to a color hex string.
+		/// </summary>
+		/// <param name="includeAlpha">True to include the alpha channel in the output.</param>
+		/// <returns>A color hex string</returns>
+		public string ToHex(bool includeAlpha = true)
+		{
+			return includeAlpha ? $"#{R:X2}{G:X2}{B:X2}{A:X2}" : $"#{R:X2}{G:X2}{B:X2}";
+		}
+
+		/// <summary>
 		/// Get an interpolated color between the invoking one and another at a given position.
 		/// </summary>
 		/// <param name="color">Other color to interpolate between.</param>

@@ -1,10 +1,11 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kinglet.Color.Tests
 {
 	[TestClass]
 	public class Rgba32Tests
 	{
 		[TestMethod]
-		public void FromHexColor_WithRRGGBB_SetsChannelsCorrectly()
+		public void FromHex_WithRRGGBB_SetsChannelsCorrectly()
 		{
 			var color = new Rgba32("#eb4334");
 
@@ -15,7 +16,7 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
-		public void FromHexColor_WithRRGGBBAA_SetsChannelsCorrectly()
+		public void FromHex_WithRRGGBBAA_SetsChannelsCorrectly()
 		{
 			var color = new Rgba32();
 
@@ -28,7 +29,7 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
-		public void FromHexColor_WithShortHex_SetsChannelsCorrectly()
+		public void FromHex_WithShortHex_SetsChannelsCorrectly()
 		{
 			var color = new Rgba32();
 
@@ -41,13 +42,43 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
-		public void FromHexColor_WithInvalidHex_ThrowsException()
+		public void FromHex_WithInvalidHex_ThrowsException()
 		{
 			var color = new Rgba32();
 
 			var exception = Assert.ThrowsException<FormatException>(() => color.FromHex("#FFFFF"));
 
 			Assert.AreEqual(strings.CouldNotParseHexExceptionMessage, exception.Message);
+		}
+
+		[TestMethod]
+		public void ToHex_WithAlpha_ReturnsCorrectValue()
+		{
+			var color = new Rgba32(46, 38, 213, 56);
+
+			var hex = color.ToHex(true);
+
+			Assert.AreEqual("#2E26D538", hex);
+		}
+
+		[TestMethod]
+		public void ToHex_WithoutAlpha_ReturnsCorrectValue()
+		{
+			var color = new Rgba32(143, 8, 111, 244);
+
+			var hex = color.ToHex(false);
+
+			Assert.AreEqual("#8F086F", hex);
+		}
+
+		[TestMethod]
+		public void ToHex_WithDefaultAlpha_ReturnsCorrectValue()
+		{
+			var color = new Rgba32(229, 120, 4, 163);
+
+			var hex = color.ToHex();
+
+			Assert.AreEqual("#E57804A3", hex);
 		}
 
 		[TestMethod]
