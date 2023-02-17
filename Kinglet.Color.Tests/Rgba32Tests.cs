@@ -28,6 +28,19 @@ namespace Kinglet.Color.Tests
 		}
 
 		[TestMethod]
+		public void FromHexColor_WithShortHex_SetsChannelsCorrectly()
+		{
+			var color = new Rgba32();
+
+			color.FromHex("#C38");
+
+			Assert.AreEqual(204, color.R);
+			Assert.AreEqual(51, color.G);
+			Assert.AreEqual(136, color.B);
+			Assert.AreEqual(255, color.A);
+		}
+
+		[TestMethod]
 		public void FromHexColor_WithInvalidHex_ThrowsException()
 		{
 			var color = new Rgba32();
