@@ -10,7 +10,7 @@ namespace Kinglet.Color
 	/// </summary>
 	public class Rgba32
 	{
-		private static readonly Regex _hexColor = new Regex("#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6})");
+		private static readonly Regex _hexColor = new Regex("^#([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$");
 
 		/// <summary>
 		/// Instantiate an <see cref="Rgba32"/>.
@@ -66,8 +66,8 @@ namespace Kinglet.Color
 		/// </summary>
 		/// <param name="hex">Color hex string.</param>
 		/// <remarks>
-		/// This method supports #RRGGBB and #RRGGBBAA hex color notation.
-		/// If the former is used, the alpha will default to #FF (255).
+		/// This method supports #RGB, #RRGGBB, and #RRGGBBAA hex color notation. If
+		/// either of the first two are supplied, the alpha will default to #FF (255).
 		/// </remarks>
 		public void FromHex(string hex)
 		{
@@ -84,6 +84,12 @@ namespace Kinglet.Color
 			}
 
 			var hexOnly = match.Groups[1].Value;
+			if (hexOnly.Length == 3)
+			{
+				// C38 => CC3388.
+				hexOnly = $"{hexOnly[0]}{hexOnly[0]}{hexOnly[1]}{hexOnly[1]}{hexOnly[2]}{hexOnly[2]}";
+			}
+
 			var bytes = new List<byte>();
 			for (int i = 0; i < hexOnly.Length; i += 2)
 			{
