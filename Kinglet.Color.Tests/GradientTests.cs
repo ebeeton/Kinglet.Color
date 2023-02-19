@@ -6,7 +6,8 @@
 		private readonly Rgba32 _black = new(0, 0, 0, 255);
 		private readonly Rgba32 _white = new(255, 255, 255, 255);
 		private readonly Rgba32 _grey = new(127, 127, 127, 255);
-		private readonly Rgba32 _green = new(0, 0, 255, 255);
+		private readonly Rgba32 _green = new(0, 255, 0, 255);
+		private readonly Rgba32 _translucentBlue = new(0, 0, 255, 128);
 
 		[TestMethod]
 		public void GetPalette_WithValidStops_ReturnsExpectedColors()
@@ -15,27 +16,24 @@
 			{
 				Stops = new List<GradientStop>
 				{
-					// Black -> white, 100% alpha.
-					new GradientStop(0, _black),
-					new GradientStop(1, _white)
+					new GradientStop(0, _green),
+					new GradientStop(0.5, _translucentBlue),
+					new GradientStop(1, _grey)
 				}
 			};
+			const int PaletteColors = 9;
+			var palette = gradient.GetPalette(PaletteColors);
 
-			var palette = gradient.GetPalette(3);
-
-			Assert.AreEqual(3, palette.Length);
-			Assert.AreEqual(_black.R, palette[0].R);
-			Assert.AreEqual(_black.G, palette[0].G);
-			Assert.AreEqual(_black.B, palette[0].B);
-			Assert.AreEqual(_black.A, palette[0].A);
-			Assert.AreEqual(_grey.R, palette[1].R);
-			Assert.AreEqual(_grey.G, palette[1].G);
-			Assert.AreEqual(_grey.B, palette[1].B);
-			Assert.AreEqual(_grey.A, palette[1].A);
-			Assert.AreEqual(_white.R, palette[2].R);
-			Assert.AreEqual(_white.G, palette[2].G);
-			Assert.AreEqual(_white.B, palette[2].B);
-			Assert.AreEqual(_white.A, palette[2].A);
+			Assert.AreEqual(PaletteColors, palette.Length);
+			Assert.AreEqual("#00FF00FF", palette[0].ToHex());
+			Assert.AreEqual("#00BF3FDF", palette[1].ToHex());
+			Assert.AreEqual("#007F7FBF", palette[2].ToHex());
+			Assert.AreEqual("#003FBF9F", palette[3].ToHex());
+			Assert.AreEqual("#0000FF80", palette[4].ToHex());
+			Assert.AreEqual("#1F1FDF9F", palette[5].ToHex());
+			Assert.AreEqual("#3F3FBFBF", palette[6].ToHex());
+			Assert.AreEqual("#5F5F9FDF", palette[7].ToHex());
+			Assert.AreEqual("#7F7F7FFF", palette[8].ToHex());
 		}
 
 		[TestMethod]
