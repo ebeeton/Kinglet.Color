@@ -22,18 +22,26 @@
 				}
 			};
 			const int PaletteColors = 9;
+			var expectedColors = new string[PaletteColors]
+			{
+				"#00FF00FF",
+				"#00BF3FDF",
+				"#007F7FBF",
+				"#003FBF9F",
+				"#0000FF80",
+				"#1F1FDF9F",
+				"#3F3FBFBF",
+				"#5F5F9FDF",
+				"#7F7F7FFF",
+			};
+
 			var palette = gradient.GetPalette(PaletteColors);
 
 			Assert.AreEqual(PaletteColors, palette.Length);
-			Assert.AreEqual("#00FF00FF", palette[0].ToHex());
-			Assert.AreEqual("#00BF3FDF", palette[1].ToHex());
-			Assert.AreEqual("#007F7FBF", palette[2].ToHex());
-			Assert.AreEqual("#003FBF9F", palette[3].ToHex());
-			Assert.AreEqual("#0000FF80", palette[4].ToHex());
-			Assert.AreEqual("#1F1FDF9F", palette[5].ToHex());
-			Assert.AreEqual("#3F3FBFBF", palette[6].ToHex());
-			Assert.AreEqual("#5F5F9FDF", palette[7].ToHex());
-			Assert.AreEqual("#7F7F7FFF", palette[8].ToHex());
+			for (int i = 0; i < PaletteColors; ++i)
+			{
+				Assert.AreEqual(expectedColors[i], palette[i].ToHex());
+			}
 		}
 
 		[TestMethod]
